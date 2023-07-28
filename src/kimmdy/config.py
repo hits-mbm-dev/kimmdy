@@ -346,7 +346,9 @@ class Config:
                 # Validate sequence
                 if isinstance(attr, Sequence):
                     for task in attr:
-                        if not hasattr(self, task):
+                        if task == "breakpoint":
+                            continue
+                        elif not hasattr(self, task):
                             if hasattr(self, "mds"):
                                 if hasattr(self.mds, task):
                                     continue

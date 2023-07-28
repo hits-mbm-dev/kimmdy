@@ -25,3 +25,4 @@ sequence:
   tasks:
   - equilibrium
   - reactions
+  - breakpoint

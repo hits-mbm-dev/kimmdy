@@ -130,6 +130,7 @@ class RunManager:
                 self._decide_reaction,
                 self._run_recipe,
             ],
+            "breakpoint": [self._breakpoint],
         }
 
         # Instantiate reactions
@@ -423,3 +424,6 @@ class RunManager:
 
         logging.info("Reaction done")
         return files
+    
+    def _breakpoint(self):
+        breakpoint()
