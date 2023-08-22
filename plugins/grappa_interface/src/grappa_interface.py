@@ -216,7 +216,7 @@ class GrappaInterface(Parameterizer):
         input_dict = generate_input(current_topology)
         write_json(input_dict, "in.json")
 
-        ff = grappa.ff.ForceField.from_tag("radical_example")
+        ff = grappa.ff.ForceField.from_tag("latest")
         ff.units["angle"] = openmm.unit.degree
         # gromacs angle force constant are already in kJ/mol/rad-2]
         parameters = ff.params_from_topology_dict(input_dict)
