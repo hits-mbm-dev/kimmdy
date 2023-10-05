@@ -113,7 +113,7 @@ def generate_input(top: Topology) -> dict:
         ]
         for atom in top.atoms.values()
     ]
-    bonds = [(int(bond[0]), int(bond[1])) for bond in top.bonds.keys()]
+    bonds = [(int(bond.ai), int(bond.aj)) for bond in top.bonds.values()]
     radicals = [int(radical) for radical in top.radicals.keys()]
 
     return {"atoms": atoms, "bonds": bonds, "radicals": radicals}

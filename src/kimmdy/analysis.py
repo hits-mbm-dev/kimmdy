@@ -70,7 +70,7 @@ def get_step_directories(dir: Path, steps: Union[list[str], str] = "all") -> lis
 
 
 def concat_traj(dir: str, steps: Union[list[str], str], open_vmd: bool = False):
-    """Find and concatenate trajectories (.xtc files) from a KIMMDY run into one trajectory.
+    """Find and concatenate trajectories (.xtc or .trr files) from a KIMMDY run into one trajectory.
     The concatenated trajectory is centered and pbc corrected.
 
     Parameters
@@ -111,7 +111,12 @@ def concat_traj(dir: str, steps: Union[list[str], str], open_vmd: bool = False):
         cwd=run_dir,
     )
     run_shell_cmd(
-        f"echo '1 0' | gmx trjconv -f {tmp_xtc} -s {tprs[0]} -o {str(out_xtc)} -center -pbc mol",
+        f"echo '1 1' | gmx trjconv -f {tmp_xtc} -s {tprs[0]} -o {str(out_xtc)} -center -pbc mol",
+        cwd=run_dir,
+    )
+    # has to be in two steps
+    run_shell_cmd(
+        f"echo '1 1' | gmx trjconv -f {str(out_xtc)} -s {tprs[0]} -o {str(out_xtc)} -fit rot+trans",
         cwd=run_dir,
     )
     run_shell_cmd(f"rm {tmp_xtc}", cwd=run_dir)
@@ -202,14 +207,14 @@ def plot_energy(
         .facet(row="variable")
         .share(x=True, y=False)
         .theme({**axes_style("white")})
-        .label(x="Time [ps]", y="Energy [kJ/mol]")
+        .label(x="Time [ps]", y="E [kJ/mol]")
     )
     p.plot(pyplot=True)
 
     step_names = step_names.groupby(["step", "step_ix"]).first().reset_index()
     for t, v, s in zip(step_names["time"], step_names["value"], step_names["step"]):
         plt.axvline(x=t, color="black", linestyle="--")
-        plt.text(x=t, y=v + 0.5, s=s, fontsize=6)
+        plt.text(x=t + 2, y=v + 0.5, s=s, fontsize=6)
 
     ax = plt.gca()
     steps_y_axis = [c for c in ax.get_children() if isinstance(c, mpl.axis.YAxis)][0]
@@ -358,25 +363,33 @@ def plot_runtime(dir: str, md_tasks: list, datefmt: str, open_plot: bool = False
     walltime = time_from_logfile(run_log, n_datefmt_substrings)
     # sensitive to changes in runmanager logging
     open_task = False
+    is_nested = False
     task_is_nested = []
+    count = 0
     with open(run_log, "r") as f:
         foo = f.readlines()
     for i, line in enumerate(foo):
-        if "Starting task: " in line:
-            if any(
-                x in line
-                for x in [
-                    "Starting task: _place_reaction_tasks",
-                    "Starting task: _decide_recipe",
-                ]
-            ):
+        # if "Starting task: " in line:
+        if "Start " in line:
+            if "Start run" in line:
                 continue
+            count += 1
+            # if any(
+            #     x in line
+            #     for x in [
+            #         "Starting task: _place_reaction_tasks",
+            #         "Starting task: _decide_recipe",
+            #     ]
+            # ):
+            #     continue
+            if open_task:
+                is_nested = True
             open_task = True
-            task_is_nested.append(False)
-        elif " Current task files:" in line:
-            if open_task is False:
-                task_is_nested[-1] = True
-                # set False for the nested task itself
+        elif " Done with " in line:
+            if is_nested:
+                task_is_nested.append(True)
+                is_nested = False
+            else:
                 task_is_nested.append(False)
             open_task = False
 
@@ -395,16 +408,20 @@ def plot_runtime(dir: str, md_tasks: list, datefmt: str, open_plot: bool = False
     tasks = []
     runtimes = []
     # sort by task number which is the number before _ in the logfile name
+    print([x.name for x in run_dir.glob("*_*/*_*.log")])
     for log_path in sorted(
         run_dir.glob("*_*/*_*.log"), key=lambda x: int(x.name.split(sep="_")[0])
     ):
         tasks.append(log_path.stem)
         runtimes.append(time_from_logfile(log_path, n_datefmt_substrings, t_factor))
     # remove duration of nested task for mother task
+    print(len(runtimes), len(task_is_nested))
+    print(runtimes)
     for i, is_nested in enumerate(task_is_nested):
         if is_nested:
             runtimes[i] -= runtimes[i + 1]
-
+    print(tasks)
+    print(task_is_nested)
     overhead = walltime - sum(runtimes)
     # sns muted palette
     c_palette = [
@@ -431,7 +448,7 @@ def plot_runtime(dir: str, md_tasks: list, datefmt: str, open_plot: bool = False
     plt.barh(tasks[::-1], runtimes[::-1], color=c[::-1])
     plt.barh("KIMMDY overhead", overhead, color=c_palette[3])
     plt.xlabel(f"Time [{t_unit}]")
-    plt.title(f"Runtime of {run_dir.name}; overall {walltime} {t_unit}")
+    plt.title(f"Runtime of {run_dir.name}; overall {walltime:.2f} {t_unit}")
     plt.tight_layout()
 
     output_path = analysis_dir / "runtime.png"

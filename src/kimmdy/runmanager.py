@@ -187,8 +187,8 @@ class RunManager:
             )
         ):
             logger.info("Writing checkpoint before next task")
-            with open(self.cptfile, "wb") as f:
-                dill.dump(self, f)
+            # with open(self.cptfile, "wb") as f:
+            #     dill.dump(self, f)
             next(self)
             self.current_time = time.time()
             logger.info("Done with:")

@@ -475,6 +475,8 @@ class MoleculeType:
                 pair_ai = update_map.get(pair.ai)
                 pair_aj = update_map.get(pair.aj)
                 if not None in (pair_ai, pair_aj):
+                    pair.ai = pair_ai
+                    pair.aj = pair_aj
                     new_pairs[(pair_ai, pair_aj)] = pair
 
             dihedrals.ai = ai  # type: ignore
@@ -699,10 +701,29 @@ class Topology:
         # break all bonds and delete all pairs, diheadrals etc
         for bound_nr in copy(atom.bound_to_nrs):
             self.break_bond((bound_nr, atom_nr))
+        self.radicals.pop(atom_nr)
 
         self.atoms.pop(atom_nr)
         update_map_all = self.reindex_atomnrs()
         update_map = update_map_all[self.main_molecule_name]
+
+        # temporary fix
+        self.atoms = self.main_molecule.atoms
+        self.bonds = self.main_molecule.bonds
+        self.angles = self.main_molecule.angles
+        self.proper_dihedrals = self.main_molecule.proper_dihedrals
+        self.improper_dihedrals = self.moleculetypes[
+            self.main_molecule_name
+        ].improper_dihedrals
+        self.pairs = self.main_molecule.pairs
+        self.position_restraints = self.moleculetypes[
+            self.main_molecule_name
+        ].position_restraints
+        self.dihedral_restraints = self.moleculetypes[
+            self.main_molecule_name
+        ].dihedral_restraints
+        self.radicals = self.main_molecule.radicals
+        #
 
         if parameterize:
             self._update_parameters()
