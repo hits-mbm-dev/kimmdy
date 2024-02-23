@@ -60,7 +60,11 @@ class MoleculeType:
     """
 
     def __init__(
-        self, header: tuple[str, str], atomics: dict, radicals: Optional[str] = None
+        self,
+        header: tuple[str, str],
+        atomics: dict,
+        radicals: Optional[list[int]] = None,
+        search_amber_rad: bool = True,
     ) -> None:
         self.name, self.nrexcl = header
         self.atomics = atomics
@@ -93,11 +97,12 @@ class MoleculeType:
         # must be after self._parse_atoms
         self.radicals: dict[str, Atom] = {}
         if radicals is not None:
-            if self.name == "Reactive":
-                logger.debug(
-                    f"Using 'radicals' section from config file with entries: '{radicals}'."
+            if search_amber_rad:
+                logger.warning(
+                    "Requested radical search but provided list of "
+                    f"{len(radicals)} radicals. Will not search for radicals."
                 )
-            for radical in radicals.split(sep=" "):
+            for radical in list(map(str, radicals)):
                 atom = self.atoms.get(radical)
                 if atom:
                     self.radicals[radical] = atom
@@ -106,8 +111,10 @@ class MoleculeType:
                     logger.debug(
                         f"Atom nr {radical} from 'radicals' section in config file not in topology. Ignoring this entry."
                     )
-        else:
+        elif search_amber_rad:
             self.find_radicals()
+        else:
+            logger.info("Radical search not possible. Provide radicals if necessary.")
 
     def __str__(self) -> str:
         return textwrap.dedent(
@@ -611,8 +618,9 @@ class Topology:
         top: TopologyDict,
         parametrizer: Parameterizer = BasicParameterizer(),
         is_reactive_predicate_f: Callable[[str], bool] = is_not_solvent_or_ion,
-        radicals: Optional[str] = None,
+        radicals: Optional[list[int]] = None,
         residuetypes_path: Optional[Path] = None,
+        search_amber_rad: bool = True,
     ) -> None:
         if top == {}:
             raise NotImplementedError(
@@ -633,7 +641,7 @@ class Topology:
 
         self.needs_parameterization = False
 
-        self._merge_moleculetypes(radicals)
+        self._merge_moleculetypes(radicals, search_amber_rad)
         self._link_atomics()
 
     def _link_atomics(self):
@@ -694,7 +702,9 @@ class Topology:
             logger.info(f"\t{m} {n}")
         return reactive_molecules
 
-    def _merge_moleculetypes(self, radicals: Optional[str] = None):
+    def _merge_moleculetypes(
+        self, radicals: Optional[list[int]] = None, search_amber_rad: bool = True
+    ):
         """
         Merge all moleculetypes within which reactions can happen into one moleculetype.
         This also makes multiples explicit.
@@ -735,7 +745,7 @@ class Topology:
 
         # add merged moleculetype to topology
         reactive_moleculetype = MoleculeType(
-            (REACTIVE_MOLECULEYPE, "1"), reactive_atomics, radicals
+            (REACTIVE_MOLECULEYPE, "1"), reactive_atomics, radicals, search_amber_rad
         )
         self.moleculetypes[REACTIVE_MOLECULEYPE] = reactive_moleculetype
         # update topology dict
@@ -779,7 +789,7 @@ class Topology:
                 )
                 continue
             name = header[0]
-            self.moleculetypes[name] = MoleculeType(header, atomics, radicals="")
+            self.moleculetypes[name] = MoleculeType(header, atomics, radicals=None)
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Topology):
