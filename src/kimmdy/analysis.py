@@ -4,12 +4,12 @@ For command line usage, run `kimmdy-analysis -h`.
 
 import argparse
 import json
-import subprocess as sp
 import re
+import subprocess as sp
+from collections import defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Optional, Union
-from collections import defaultdict
 
 import matplotlib as mpl
 import matplotlib.patches as mpatches
@@ -21,10 +21,10 @@ import seaborn as sns
 import seaborn.objects as so
 from seaborn import axes_style
 
-from kimmdy.parsing import read_json, write_json, read_time_marker
-from kimmdy.recipe import Bind, Break, Place, RecipeCollection
-from kimmdy.utils import run_shell_cmd, get_task_directories
 from kimmdy.constants import MARK_DONE, MARK_STARTED
+from kimmdy.parsing import read_json, read_time_marker, write_json
+from kimmdy.recipe import Bind, Break, Place, RecipeCollection
+from kimmdy.utils import get_task_directories, run_shell_cmd
 
 
 def get_analysis_dir(dir: Path) -> Path:
@@ -121,8 +121,7 @@ def concat_traj(
     )
     run_shell_cmd(f"rm {tmp_xtc}", cwd=run_dir)
     if open_vmd:
-        gro = str(gros[0])
-        run_shell_cmd(f"vmd {gro} {str(out_xtc)}", cwd=run_dir)
+        run_shell_cmd(f"vmd {str(out_gro)} {str(out_xtc)}", cwd=run_dir)
 
 
 def plot_energy(
