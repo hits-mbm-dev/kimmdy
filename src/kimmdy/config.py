@@ -107,8 +107,9 @@ class Config:
                 # base case for recursion
                 opts = scheme.get(k)
                 if opts is None:
-                    if scheme.get("additional_properties"):
-                        # property "additional_properties" marks objects that have additional properties
+                    if scheme.get("additionalProperties"):
+                        # property "additionalProperties" marks objects that have additional properties
+                        # so we can just set them
                         self.__setattr__(k, v)
                         continue
                     m = f"Unknown option {section}.{k} found in config file."
@@ -183,9 +184,8 @@ class Config:
 
         for k, v in scheme.items():
             if type(v) is not dict:
-                raise ValueError(
-                    f"Scheme entry {section}.{k}: {v} is not a dict. Like the dwarfs, someone dug too deep."
-                )
+                # raise ValueError(f"Scheme entry {section}.{k}: {v} is not a dict.")
+                continue
 
             pytype = v.get("pytype")
             if pytype is not None:

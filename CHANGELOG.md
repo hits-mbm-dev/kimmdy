@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.7.0](https://github.com/hits-mbm-dev/kimmdy/compare/v6.6.1...v6.7.0) (2024-05-20)
+
+
+### Features
+
+* pass slurm options via kimmdy.yml config ([#432](https://github.com/hits-mbm-dev/kimmdy/issues/432)) ([11d3056](https://github.com/hits-mbm-dev/kimmdy/commit/11d3056aef19cd71d4ab265daf29e6eaf75457dd))
+
 ## [6.6.1](https://github.com/hits-mbm-dev/kimmdy/compare/v6.6.0...v6.6.1) (2024-05-07)
 
 

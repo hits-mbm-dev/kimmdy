@@ -1,12 +1,13 @@
+from pathlib import Path
+
+import pytest
 import yaml
 
 from kimmdy.config import Config
+from kimmdy.parsing import read_top
 from kimmdy.runmanager import get_existing_files
 from kimmdy.topology.ff import FF
 from kimmdy.topology.topology import Topology
-from kimmdy.parsing import read_top
-from pathlib import Path
-import pytest
 
 
 @pytest.mark.require_gmx
@@ -192,3 +193,10 @@ def test_explicit_radicals(arranged_tmp_path):
     assert len(top.radicals) == 4
     for radical in config.radicals.split(sep=" "):
         assert top.radicals.get(radical)
+
+
+def test_config_retains_additional_kwargs(
+    arranged_tmp_path,
+):
+    config = Config(Path("config4.yml"))
+    assert config.changer.topology.parameterization_kwargs.test_arg == "hello"

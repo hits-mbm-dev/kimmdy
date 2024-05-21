@@ -6,6 +6,44 @@
   "additionalProperties": false,
   "required": ["sequence", "changer"],
   "properties": {
+    "slurm": {
+      "title": "slurm",
+      "type": "object",
+      "description": "SLURM HPC options",
+      "properties": {
+        "N": {
+          "type": "integer",
+          "description": "Number of nodes",
+          "pytype": "int",
+          "default": 1
+        },
+        "ntasks_per_node": {
+          "type": "integer",
+          "description": "n tasks per node",
+          "pytype": "int",
+          "default": 20
+        },
+        "mincpus": {
+          "type": "integer",
+          "description": "mincpus",
+          "pytype": "int",
+          "default": 20
+        },
+        "cpus_per_task": {
+          "type": "integer",
+          "description": "cpus per task",
+          "pytype": "int",
+          "default": 1
+        },
+        "gpus": {
+          "type": "integer",
+          "description": "n gpus",
+          "pytype": "int",
+          "default": 1
+        }
+      },
+      "additionalProperties": false
+    },
     "dryrun": {
       "title": "dryrun",
       "description": "Don't run the actual simulations, just print the tasks",
@@ -264,12 +302,6 @@
             "parameterization_kwargs":{
               "type": "object",
               "description": "Keyword argument container for the selected parameterization scheme", 
-              "properties": {
-                "additional_properties":{
-                  "type": "bool",
-                  "description": "This allows the parent object to have additional properties"
-                }
-              },
               "additionalProperties": true
             }
           },

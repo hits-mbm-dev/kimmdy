@@ -125,12 +125,15 @@ def convert_schema_to_dict(dictionary: dict) -> dict:
         pytype = value.get("pytype")
         default = value.get("default")
         description = value.get("description")
+        additionalProperties = value.get("additionalProperties")
         if pytype is not None:
             result[key]["pytype"] = eval(pytype)
         if default is not None:
             result[key]["default"] = default
         if description is not None:
             result[key]["description"] = description
+        if additionalProperties is not None:
+            result[key]["additionalProperties"] = additionalProperties
 
     return result
 

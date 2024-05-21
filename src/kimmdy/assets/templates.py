@@ -4,15 +4,15 @@ jobscript = """
 #SBATCH --output={config.out.name}-job.log
 #SBATCH --error={config.out.name}-job.log
 #SBATCH --time={config.max_hours}:00:00
-#SBATCH -N 1
-#SBATCH --ntasks-per-node=20
-#SBATCH --mincpus=20
+#SBATCH -N={config.slurm.N}
+#SBATCH --ntasks-per-node={config.slurm.ntasks_per_node}
+#SBATCH --mincpus={config.slurm.mincpus}
 #SBATCH --exclusive
-#SBATCH --cpus-per-task=1
-#SBATCH --gpus 1
+#SBATCH --cpus-per-task={config.slurm.cpus_per_task}
+#SBATCH --gpus={config.slurm.gpus}
 #SBATCH --mail-type=ALL
 # #SBATCH -p <your-partition>.p
-# #SBATCH --mail-user=<your-email
+# #SBATCH --mail-user=<your-email>
 
 
 # Setup up your environment here

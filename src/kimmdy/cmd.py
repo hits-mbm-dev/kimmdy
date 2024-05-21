@@ -7,14 +7,12 @@ import argparse
 import logging
 import logging.config
 import os
+import shutil
 import sys
 import textwrap
 from os import chmod
 from pathlib import Path
-import shutil
 from typing import Optional
-
-import dill
 
 from kimmdy.assets.templates import jobscript
 from kimmdy.config import Config
