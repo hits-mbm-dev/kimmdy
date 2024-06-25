@@ -972,6 +972,7 @@ class Topology:
         # not need to be repeated
         # Warning: resnr not unique for each residue, 'residues' can map to
         # more than one real residue
+
         residues = {}
         for atom in self.atoms.values():
             if residues.get(atom.resnr) is None:
@@ -1026,6 +1027,14 @@ class Topology:
                     atom2 = self.atoms[step.atom_id_2]
                     # check whether bond exists in topology
                     residue = atom1.residue
+
+                    # only attempt update if residuetype exists
+                    if self.ff.residuetypes.get(residue) is None:
+                        logger.warning(
+                            f"Residue `{residue}` not in list of residuetypes. Not changing partial charges for Bind recipe step {step}!"
+                        )
+                        continue
+
                     bondtype = (atom1.atom, atom2.atom)
                     residue_bond_spec = self.ff.residuetypes[residue].bonds.get(
                         bondtype,
@@ -1386,8 +1395,7 @@ class Topology:
             if reactive_moleculetype.angles.get(key) is None:
                 reactive_moleculetype.angles[key] = Angle(key[0], key[1], key[2], "1")
 
-        # add proper and improper dihedrals
-        # add proper dihedrals and pairs
+        # add proper dihedrals
         # TODO; for now this assumes function type 9 for all dihedrals
         # and adds all possible dihedrals (and pairs)
         # later we should check the ff if there are multiple
@@ -1397,12 +1405,11 @@ class Topology:
         ) + reactive_moleculetype._get_atom_proper_dihedrals(atompair_nrs[1])
         for key in dihedral_keys:
             if reactive_moleculetype.proper_dihedrals.get(key) is None:
-                reactive_moleculetype.proper_dihedrals[key] = MultipleDihedrals(
-                    *key, "9", dihedrals={"": Dihedral(*key, "9")}
-                )
-            pairkey: tuple[str, str] = tuple(str(x) for x in sorted([key[0], key[3]], key=int))  # type: ignore
-            if reactive_moleculetype.pairs.get(pairkey) is None:
-                reactive_moleculetype.pairs[pairkey] = Pair(pairkey[0], pairkey[1], "1")
+                # check for three membered ring
+                if not key[0] == key[-1]:
+                    reactive_moleculetype.proper_dihedrals[key] = MultipleDihedrals(
+                        *key, "9", dihedrals={"": Dihedral(*key, "9")}
+                    )
 
         # improper dihedral
         dihedral_k_v = reactive_moleculetype._get_atom_improper_dihedrals(
@@ -1417,4 +1424,24 @@ class Topology:
                 )
             reactive_moleculetype.improper_dihedrals[key].dihedrals[value.c2] = (
                 Dihedral(*key, "4", c0=value.c0, c1=value.c1, periodicity=value.c2)
+            )
+
+        # add pairs for the most distant excluded bonded interaction
+        scaled_interaction_keys = {
+            "1": [atompair_nrs],
+            "2": angle_keys,
+            "3": dihedral_keys,
+        }
+        try:
+            for key in scaled_interaction_keys[reactive_moleculetype.nrexcl]:
+                # check for three membered ring in propers, not harmful for bonds, angles
+                if not key[0] == key[-1]:
+                    pairkey: tuple[str, str] = tuple(str(x) for x in sorted([key[0], key[-1]], key=int))  # type: ignore
+                    if reactive_moleculetype.pairs.get(pairkey) is None:
+                        reactive_moleculetype.pairs[pairkey] = Pair(
+                            pairkey[0], pairkey[1], "1"
+                        )
+        except KeyError:
+            logger.exception(
+                f"Unexpected nrexcl: {reactive_moleculetype.nrexcl}, should be in [1,2,3]! Skipping pairs generation."
             )

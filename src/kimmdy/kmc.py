@@ -72,9 +72,11 @@ def rf_kmc(
     reaction_probability = []
 
     # 1. Calculate the probability for each reaction
+
     for recipe in recipe_collection.recipes:
         dt = [x[1] - x[0] for x in recipe.timespans]
-        reaction_probability.append(sum(np.multiply(dt, recipe.rates)))
+        t_interval = recipe.timespans[-1][-1] - recipe.timespans[0][0]
+        reaction_probability.append(sum(np.multiply(dt, recipe.rates)) / t_interval)
 
     # 2. Set the total rate to the sum of individual rates
     probability_cumulative = np.cumsum(reaction_probability)
