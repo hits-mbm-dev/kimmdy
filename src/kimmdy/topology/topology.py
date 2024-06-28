@@ -7,40 +7,23 @@ from typing import Callable, Optional, Union
 
 from numpy import empty
 
-from kimmdy.constants import (
-    ATOM_ID_FIELDS,
-    ATOMTYPE_BONDORDER_FLAT,
-    REACTIVE_MOLECULEYPE,
-    RESNR_ID_FIELDS,
-)
+from kimmdy.constants import (ATOM_ID_FIELDS, ATOMTYPE_BONDORDER_FLAT,
+                              REACTIVE_MOLECULEYPE, RESNR_ID_FIELDS)
 from kimmdy.parsing import TopologyDict, empty_section
 from kimmdy.plugins import BasicParameterizer, Parameterizer
 from kimmdy.recipe import Bind, Break, RecipeStep
-from kimmdy.topology.atomic import (
-    Angle,
-    Atom,
-    Bond,
-    Dihedral,
-    DihedralRestraint,
-    Exclusion,
-    MoleculeTypeHeader,
-    MultipleDihedrals,
-    Pair,
-    PositionRestraint,
-    ResidueImproperSpec,
-    Settle,
-)
+from kimmdy.topology.atomic import (Angle, Atom, Bond, Dihedral,
+                                    DihedralRestraint, Exclusion,
+                                    MoleculeTypeHeader, MultipleDihedrals,
+                                    Pair, PositionRestraint,
+                                    ResidueImproperSpec, Settle)
 from kimmdy.topology.ff import FF
-from kimmdy.topology.utils import (
-    attributes_to_list,
-    get_moleculetype_atomics,
-    get_moleculetype_header,
-    get_residue_fragments,
-    get_top_section,
-    increment_field,
-    is_not_solvent_or_ion,
-    set_top_section,
-)
+from kimmdy.topology.utils import (attributes_to_list,
+                                   get_moleculetype_atomics,
+                                   get_moleculetype_header,
+                                   get_residue_fragments, get_top_section,
+                                   increment_field, is_not_solvent_or_ion,
+                                   set_top_section)
 from kimmdy.utils import TopologyAtomAddress
 
 logger = logging.getLogger("kimmdy.topology")
@@ -712,6 +695,7 @@ class Topology:
             REACTIVE_MOLECULEYPE
         ].dihedral_restraints
         self.radicals = self.reactive_molecule.radicals
+        self.nrexcl = self.reactive_molecule.nrexcl
 
     def _extract_mergable_molecules(self) -> dict[str, int]:
         """Extract all molecules that are to be merged into one moleculetype.
@@ -935,7 +919,7 @@ class Topology:
             "bondtypes",
             [attributes_to_list(x) for x in self.ff.bondtypes.values()],
         )
-        if self.ff.nonbond_params is not {}:
+        if self.ff.nonbond_params != {}:
             set_top_section(
                 self.top,
                 "nonbond_params",

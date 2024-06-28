@@ -24,7 +24,6 @@ from kimmdy.plugins import (
     reaction_plugins,
 )
 from kimmdy.runmanager import RunManager
-from kimmdy.utils import longFormatter
 
 if sys.version_info > (3, 10):
     from importlib_metadata import version
@@ -32,70 +31,6 @@ else:
     from importlib.metadata import version
 
 logger = logging.getLogger(__name__)
-
-
-def configure_logger(config: Config):
-    """Configure logging.
-
-    Parameters
-    ----------
-    config
-        configuration that contains
-        log.level and log.file
-    """
-    log_conf = {
-        "version": 1,
-        "formatters": {
-            "short": {
-                "format": "%(name)-15s %(levelname)s: %(message)s",
-                "datefmt": "%H:%M",
-            },
-            "full": {
-                "format": "%(asctime)s %(name)-17s %(levelname)s: %(message)s",
-                "datefmt": "%d-%m-%y %H:%M:%S",
-            },
-            "full_cut": {
-                "()": longFormatter,
-                "format": "%(asctime)s %(name)-12s %(levelname)s: %(message)s",
-                "datefmt": "%d-%m-%y %H:%M:%S",
-            },
-        },
-        "handlers": {
-            "cmd": {
-                "class": "logging.StreamHandler",
-                "formatter": "short",
-            },
-            "file": {
-                "class": "logging.FileHandler",
-                "formatter": "full_cut",
-                "filename": config.log.file,
-            },
-            "null": {
-                "class": "logging.NullHandler",
-            },
-        },
-        "loggers": {
-            "kimmdy": {
-                "level": config.log.level.upper(),
-                "handlers": ["cmd", "file"],
-            },
-        },
-        # Mute others, e.g. tensorflow, matplotlib
-        "root": {
-            "level": "CRITICAL",
-            "handlers": ["null"],
-        },
-    }
-    logging.config.dictConfig(log_conf)
-
-    # symlink logfile of the latest run to kimmdy.log in cwd
-    log: Path = config.cwd.joinpath("kimmdy.log")
-    if log.is_symlink():
-        log.unlink()
-    if log.exists():
-        os.remove(log)
-
-    log.symlink_to(config.out / config.log.file)
 
 
 def get_cmdline_args() -> argparse.Namespace:
@@ -205,7 +140,6 @@ def _run(args: argparse.Namespace):
             input_file=args.input, logfile=args.logfile, loglevel=args.loglevel
         )
 
-        configure_logger(config)
         logger.info("Welcome to KIMMDY")
 
         # write out collected log messages

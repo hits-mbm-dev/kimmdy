@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.176">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -50,12 +50,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -64,6 +65,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -77,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
@@ -91,31 +93,31 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../../guide/tutorials/getting-started.html" rel="" target="" aria-current="page">
- <span class="menu-text">Getting Started</span></a>
+    <a class="nav-link active" href="../../guide/tutorials/getting-started.html" aria-current="page"> 
+<span class="menu-text">Getting Started</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../guide/how-to/index.html" rel="" target="">
- <span class="menu-text">How-To</span></a>
+    <a class="nav-link" href="../../guide/how-to/index.html"> 
+<span class="menu-text">How-To</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../guide/tutorials/index.html" rel="" target="">
- <span class="menu-text">Tutorials</span></a>
+    <a class="nav-link" href="../../guide/tutorials/index.html"> 
+<span class="menu-text">Tutorials</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../guide/explanation/index.html" rel="" target="">
- <span class="menu-text">Explanations</span></a>
+    <a class="nav-link" href="../../guide/explanation/index.html"> 
+<span class="menu-text">Explanations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../_reference/index.html" rel="" target="">
- <span class="menu-text">Reference</span></a>
+    <a class="nav-link" href="../../_reference/index.html"> 
+<span class="menu-text">Reference</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools tools-wide">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/graeter-group/kimmdy">
             Source Code
@@ -139,11 +141,11 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../guide/explanation/index.html">Explanation</a></li><li class="breadcrumb-item"><a href="../../guide/explanation/components.html">Components of KIMMDY</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -151,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -461,7 +463,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
@@ -490,7 +492,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>Here is an overview of the most important components of KIMMDY, and how they interact with each other:</p>
 <div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers tags lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;<mxfile host=\&quot;embed.diagrams.net\&quot; modified=\&quot;2024-04-12T13:01:39.162Z\&quot; agent=\&quot;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0\&quot; etag=\&quot;2LzvXIML8sgRkzA7WiYD\&quot; version=\&quot;24.0.7\&quot; type=\&quot;embed\&quot;>\n  <diagram id=\&quot;C5RBs43oDa-KdzZeNtuy\&quot; name=\&quot;Page-1\&quot;>\n    <mxGraphModel dx=\&quot;1088\&quot; dy=\&quot;769\&quot; grid=\&quot;1\&quot; gridSize=\&quot;10\&quot; guides=\&quot;1\&quot; tooltips=\&quot;1\&quot; connect=\&quot;1\&quot; arrows=\&quot;1\&quot; fold=\&quot;1\&quot; page=\&quot;1\&quot; pageScale=\&quot;1\&quot; pageWidth=\&quot;827\&quot; pageHeight=\&quot;1169\&quot; math=\&quot;0\&quot; shadow=\&quot;0\&quot;>\n      <root>\n        <mxCell id=\&quot;WIyWlLk6GJQsqaUBKTNV-0\&quot; />\n        <mxCell id=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-0\&quot; />\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-1\&quot; value=\&quot;\&quot; style=\&quot;ellipse;whiteSpace=wrap;html=1;align=center;aspect=fixed;fillColor=none;strokeColor=none;resizable=0;perimeter=centerPerimeter;rotatable=0;allowArrows=0;points=[];outlineConnect=1;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;620\&quot; y=\&quot;20\&quot; width=\&quot;10\&quot; height=\&quot;10\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-3\&quot; value=\&quot;RunManager\&quot; style=\&quot;swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;320\&quot; y=\&quot;20\&quot; width=\&quot;160\&quot; height=\&quot;340\&quot; as=\&quot;geometry\&quot;>\n            <mxRectangle x=\&quot;340\&quot; y=\&quot;130\&quot; width=\&quot;110\&quot; height=\&quot;30\&quot; as=\&quot;alternateBounds\&quot; />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-58\&quot; value=\&quot;+ config\&quot; style=\&quot;html=1;whiteSpace=wrap;align=left;fontStyle=2;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;fillColor=#E3E3E3;strokeColor=#666666;fontColor=#333333;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-3\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;26\&quot; width=\&quot;160\&quot; height=\&quot;24\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-73\&quot; value=\&quot;&amp;lt;div&amp;gt;+ tasks: task queue&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;+ crr_tasks: priority queue\&quot; style=\&quot;html=1;whiteSpace=wrap;align=left;fontStyle=2;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;fillColor=#E3E3E3;strokeColor=#666666;fontColor=#333333;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-3\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;50\&quot; width=\&quot;160\&quot; height=\&quot;40\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-74\&quot; value=\&quot;&amp;lt;div align=&amp;quot;left&amp;quot;&amp;gt;+ reaction plugins&amp;lt;/div&amp;gt;\&quot; style=\&quot;html=1;whiteSpace=wrap;align=left;fontStyle=2;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;fillColor=#E3E3E3;strokeColor=#666666;fontColor=#333333;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-3\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;90\&quot; width=\&quot;160\&quot; height=\&quot;20\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-95\&quot; value=\&quot;&amp;lt;div align=&amp;quot;left&amp;quot;&amp;gt;&amp;lt;i&amp;gt;+ parametrizer plugin&amp;lt;/i&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;html=1;whiteSpace=wrap;align=left;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;fillColor=#E3E3E3;strokeColor=#666666;fontColor=#333333;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-3\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;110\&quot; width=\&quot;160\&quot; height=\&quot;20\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;ZZ1oNmMWEcc1Qex5SiT5-0\&quot; value=\&quot;&amp;lt;div align=&amp;quot;left&amp;quot;&amp;gt;&amp;lt;i&amp;gt;+ top&amp;lt;br&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;html=1;whiteSpace=wrap;align=left;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;fillColor=#E3E3E3;strokeColor=#666666;fontColor=#333333;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-3\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;130\&quot; width=\&quot;160\&quot; height=\&quot;20\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-4\&quot; value=\&quot;&amp;lt;div&amp;gt;+ state&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ time&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ latest files&amp;lt;/div&amp;gt;\&quot; style=\&quot;text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=2;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;fillColor=#E3E3E3;strokeColor=#666666;fontColor=#333333;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-3\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;150\&quot; width=\&quot;160\&quot; height=\&quot;60\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-5\&quot; value=\&quot;\&quot; style=\&quot;line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-3\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;210\&quot; width=\&quot;160\&quot; height=\&quot;8\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-6\&quot; value=\&quot;&amp;lt;div&amp;gt;+ __next__&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ run md&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ query reaction&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-3\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;218\&quot; width=\&quot;160\&quot; height=\&quot;52\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;AoEu70FCAJxQCigTwmNW-23\&quot; value=\&quot;\&quot; style=\&quot;line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-3\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;270\&quot; width=\&quot;160\&quot; height=\&quot;8\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;AoEu70FCAJxQCigTwmNW-22\&quot; value=\&quot;+ decide recipe&amp;lt;div&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-3\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;278\&quot; width=\&quot;160\&quot; height=\&quot;22\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;AoEu70FCAJxQCigTwmNW-25\&quot; value=\&quot;\&quot; style=\&quot;line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-3\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;300\&quot; width=\&quot;160\&quot; height=\&quot;8\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;AoEu70FCAJxQCigTwmNW-24\&quot; value=\&quot;+ apply recipe&amp;lt;div&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-3\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;308\&quot; width=\&quot;160\&quot; height=\&quot;32\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-84\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; source=\&quot;enuX_6VsqPwF3hcZr7AK-12\&quot; target=\&quot;enuX_6VsqPwF3hcZr7AK-58\&quot; edge=\&quot;1\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n            <mxPoint x=\&quot;250\&quot; y=\&quot;58\&quot; as=\&quot;targetPoint\&quot; />\n            <Array as=\&quot;points\&quot;>\n              <mxPoint x=\&quot;179\&quot; y=\&quot;58\&quot; />\n            </Array>\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-12\&quot; value=\&quot;Config\&quot; style=\&quot;html=1;whiteSpace=wrap;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;128\&quot; y=\&quot;90\&quot; width=\&quot;157\&quot; height=\&quot;50\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-18\&quot; value=\&quot;kimmdy.yml\&quot; style=\&quot;shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;fillColor=#ffe6cc;strokeColor=#d79b00;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;218\&quot; y=\&quot;170\&quot; width=\&quot;67\&quot; height=\&quot;70\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-20\&quot; value=\&quot;scheme definition\&quot; style=\&quot;shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=27;verticalAlign=top;align=center;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;128\&quot; y=\&quot;265\&quot; width=\&quot;67\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-23\&quot; value=\&quot;&amp;lt;div&amp;gt;Task&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;font-weight: normal;&amp;quot;&amp;gt;Container for tasks to put&amp;lt;br&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;span style=&amp;quot;font-weight: normal;&amp;quot;&amp;gt;into queue&amp;lt;/span&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;576\&quot; y=\&quot;20\&quot; width=\&quot;207\&quot; height=\&quot;150\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-24\&quot; value=\&quot;&amp;lt;div&amp;gt;+ Callable: function to execute later&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ kwargs: arguments for the callable&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ name&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ out dir&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=2;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;fillColor=#E3E3E3;strokeColor=#666666;fontColor=#333333;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-23\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;50\&quot; width=\&quot;207\&quot; height=\&quot;70\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-25\&quot; value=\&quot;\&quot; style=\&quot;line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-23\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;120\&quot; width=\&quot;207\&quot; height=\&quot;8\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-26\&quot; value=\&quot;+ call: execute task\&quot; style=\&quot;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-23\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;128\&quot; width=\&quot;207\&quot; height=\&quot;22\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-29\&quot; value=\&quot;RecipeCollection\&quot; style=\&quot;swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;113\&quot; y=\&quot;380\&quot; width=\&quot;187\&quot; height=\&quot;160\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-30\&quot; value=\&quot;+ recipes: list of recipes\&quot; style=\&quot;text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=2;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;fillColor=#E3E3E3;strokeColor=#666666;fontColor=#333333;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-29\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;26\&quot; width=\&quot;187\&quot; height=\&quot;26\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-31\&quot; value=\&quot;\&quot; style=\&quot;line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-29\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;52\&quot; width=\&quot;187\&quot; height=\&quot;8\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-32\&quot; value=\&quot;&amp;lt;div&amp;gt;+ aggregate_reactions&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ to_csv&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ from_csv&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ calc_cumprob&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ calc_ratesum&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ plot&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-29\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;60\&quot; width=\&quot;187\&quot; height=\&quot;100\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-33\&quot; value=\&quot;Recipe\&quot; style=\&quot;swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;320\&quot; y=\&quot;380\&quot; width=\&quot;160\&quot; height=\&quot;160\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-34\&quot; value=\&quot;&amp;lt;div&amp;gt;+ recipe_steps&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ rates&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ timespans&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=2;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;fillColor=#E3E3E3;strokeColor=#666666;fontColor=#333333;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-33\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;26\&quot; width=\&quot;160\&quot; height=\&quot;54\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-35\&quot; value=\&quot;\&quot; style=\&quot;line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-33\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;80\&quot; width=\&quot;160\&quot; height=\&quot;8\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-36\&quot; value=\&quot;&amp;lt;div&amp;gt;+ combine_with&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ check_consistensy&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ get_recipe_name&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;amp;nbsp; &amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-33\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;88\&quot; width=\&quot;160\&quot; height=\&quot;72\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-42\&quot; value=\&quot;recip_step\&quot; style=\&quot;shape=folder;fontStyle=1;tabWidth=110;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;113\&quot; y=\&quot;560\&quot; width=\&quot;187\&quot; height=\&quot;280\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-44\&quot; value=\&quot;Break\&quot; style=\&quot;swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-42\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;10\&quot; y=\&quot;40\&quot; width=\&quot;80\&quot; height=\&quot;70\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-45\&quot; value=\&quot;&amp;lt;div&amp;gt;+ atom 1&amp;amp;nbsp; &amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ atom 2&amp;amp;nbsp; &amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=2;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;fillColor=#E3E3E3;strokeColor=#666666;fontColor=#333333;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-44\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;26\&quot; width=\&quot;80\&quot; height=\&quot;44\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-48\&quot; value=\&quot;Bind\&quot; style=\&quot;swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-42\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;100\&quot; y=\&quot;40\&quot; width=\&quot;80\&quot; height=\&quot;70\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-49\&quot; value=\&quot;&amp;lt;div&amp;gt;+ atom 1&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ atom 2&amp;amp;nbsp; &amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=2;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;fillColor=#E3E3E3;strokeColor=#666666;fontColor=#333333;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-48\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;26\&quot; width=\&quot;80\&quot; height=\&quot;44\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-50\&quot; value=\&quot;Place\&quot; style=\&quot;swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-42\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;100\&quot; y=\&quot;120\&quot; width=\&quot;80\&quot; height=\&quot;70\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-51\&quot; value=\&quot;&amp;lt;div&amp;gt;+ atom 1&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+coordinates&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=2;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;fillColor=#E3E3E3;strokeColor=#666666;fontColor=#333333;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-50\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;26\&quot; width=\&quot;80\&quot; height=\&quot;44\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-52\&quot; value=\&quot;Relax\&quot; style=\&quot;swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-42\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;10\&quot; y=\&quot;120\&quot; width=\&quot;80\&quot; height=\&quot;70\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-90\&quot; value=\&quot;Trigger MD\&quot; style=\&quot;html=1;whiteSpace=wrap;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-52\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;26\&quot; width=\&quot;80\&quot; height=\&quot;44\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-54\&quot; value=\&quot;Modify top\&quot; style=\&quot;swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-42\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;10\&quot; y=\&quot;200\&quot; width=\&quot;170\&quot; height=\&quot;70\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-55\&quot; value=\&quot;+ callable(top) -&amp;amp;gt; top&amp;amp;nbsp; \&quot; style=\&quot;text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=2;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;fillColor=#E3E3E3;fontColor=#333333;strokeColor=#666666;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-54\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;26\&quot; width=\&quot;170\&quot; height=\&quot;44\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-77\&quot; value=\&quot;\&quot; style=\&quot;ellipse;whiteSpace=wrap;html=1;align=center;aspect=fixed;fillColor=none;strokeColor=none;resizable=0;perimeter=centerPerimeter;rotatable=0;allowArrows=0;points=[];outlineConnect=1;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;520\&quot; width=\&quot;10\&quot; height=\&quot;10\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-79\&quot; value=\&quot;\&quot; style=\&quot;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=oval;endFill=0;endSize=10;strokeWidth=1;sketch=0;exitX=-0.001;exitY=0.135;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; source=\&quot;enuX_6VsqPwF3hcZr7AK-112\&quot; edge=\&quot;1\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n            <mxPoint x=\&quot;577\&quot; y=\&quot;203.39999999999998\&quot; as=\&quot;sourcePoint\&quot; />\n            <mxPoint x=\&quot;560\&quot; y=\&quot;160\&quot; as=\&quot;targetPoint\&quot; />\n            <Array as=\&quot;points\&quot;>\n              <mxPoint x=\&quot;560\&quot; y=\&quot;200\&quot; />\n            </Array>\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-80\&quot; value=\&quot;\&quot; style=\&quot;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=halfCircle;endFill=0;sketch=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;endSize=6;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeColor=default;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; source=\&quot;enuX_6VsqPwF3hcZr7AK-74\&quot; edge=\&quot;1\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n            <mxPoint x=\&quot;259\&quot; y=\&quot;165\&quot; as=\&quot;sourcePoint\&quot; />\n            <mxPoint x=\&quot;560\&quot; y=\&quot;160\&quot; as=\&quot;targetPoint\&quot; />\n            <Array as=\&quot;points\&quot;>\n              <mxPoint x=\&quot;560\&quot; y=\&quot;120\&quot; />\n            </Array>\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-91\&quot; value=\&quot;Topology\&quot; style=\&quot;swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;576\&quot; y=\&quot;460\&quot; width=\&quot;207\&quot; height=\&quot;240\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-92\&quot; value=\&quot;&amp;lt;div&amp;gt;+ atoms&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ bonds&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ pairs&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ angles&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ dihedrals&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ restrains&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ radicals&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ needs_parametrization&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=2;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;fillColor=#E3E3E3;strokeColor=#666666;fontColor=#333333;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-91\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;26\&quot; width=\&quot;207\&quot; height=\&quot;124\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-93\&quot; value=\&quot;\&quot; style=\&quot;line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-91\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;150\&quot; width=\&quot;207\&quot; height=\&quot;8\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-94\&quot; value=\&quot;&amp;lt;div&amp;gt;+ break_bond&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ bind_bond&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ del_atom&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ reindex_atomnrs&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;+ parametrize&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-91\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;158\&quot; width=\&quot;207\&quot; height=\&quot;82\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-96\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.001;entryY=0.045;entryDx=0;entryDy=0;entryPerimeter=0;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; source=\&quot;ZZ1oNmMWEcc1Qex5SiT5-0\&quot; target=\&quot;enuX_6VsqPwF3hcZr7AK-91\&quot; edge=\&quot;1\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n            <Array as=\&quot;points\&quot;>\n              <mxPoint x=\&quot;520\&quot; y=\&quot;160\&quot; />\n              <mxPoint x=\&quot;520\&quot; y=\&quot;471\&quot; />\n            </Array>\n            <mxPoint x=\&quot;520\&quot; y=\&quot;471\&quot; as=\&quot;targetPoint\&quot; />\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-112\&quot; value=\&quot;&amp;lt;i&amp;gt;&amp;amp;lt;&amp;amp;lt;Reaction&amp;amp;gt;&amp;amp;gt;&amp;lt;/i&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Interface for plugins&amp;lt;/b&amp;gt;\&quot; style=\&quot;swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;576\&quot; y=\&quot;180\&quot; width=\&quot;207\&quot; height=\&quot;150\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-113\&quot; value=\&quot;&amp;lt;p style=&amp;quot;margin:0px;margin-left:4px;&amp;quot;&amp;gt;&amp;lt;i&amp;gt;+ name&amp;lt;br&amp;gt;+ runmanager&amp;lt;/i&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;p style=&amp;quot;margin:0px;margin-left:4px;&amp;quot;&amp;gt;&amp;lt;i&amp;gt;+ config: sub-config of this step&amp;lt;/i&amp;gt;&amp;lt;/p&amp;gt;\&quot; style=\&quot;text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=2;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;fillColor=#E3E3E3;strokeColor=#666666;fontColor=#333333;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-112\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;40\&quot; width=\&quot;207\&quot; height=\&quot;60\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-114\&quot; value=\&quot;\&quot; style=\&quot;line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-112\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;100\&quot; width=\&quot;207\&quot; height=\&quot;8\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-115\&quot; value=\&quot;&amp;lt;p style=&amp;quot;margin:0px;margin-left:4px;&amp;quot;&amp;gt;+ get_recipe_collection(TaskFiles)&amp;lt;/p&amp;gt;&amp;amp;nbsp;→ RecipeCollection\&quot; style=\&quot;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;\&quot; parent=\&quot;enuX_6VsqPwF3hcZr7AK-112\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;108\&quot; width=\&quot;207\&quot; height=\&quot;42\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-116\&quot; value=\&quot;&amp;lt;div&amp;gt;plugin&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;scheme definition&amp;lt;/div&amp;gt;\&quot; style=\&quot;shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;218\&quot; y=\&quot;265\&quot; width=\&quot;67\&quot; height=\&quot;80\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-117\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; source=\&quot;enuX_6VsqPwF3hcZr7AK-116\&quot; edge=\&quot;1\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n            <mxPoint x=\&quot;200\&quot; y=\&quot;140\&quot; as=\&quot;targetPoint\&quot; />\n            <Array as=\&quot;points\&quot;>\n              <mxPoint x=\&quot;200\&quot; y=\&quot;270\&quot; />\n            </Array>\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-119\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.476;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; source=\&quot;enuX_6VsqPwF3hcZr7AK-20\&quot; edge=\&quot;1\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n            <mxPoint x=\&quot;160\&quot; y=\&quot;260\&quot; as=\&quot;sourcePoint\&quot; />\n            <mxPoint x=\&quot;160\&quot; y=\&quot;140\&quot; as=\&quot;targetPoint\&quot; />\n            <Array as=\&quot;points\&quot;>\n              <mxPoint x=\&quot;160\&quot; y=\&quot;203\&quot; />\n              <mxPoint x=\&quot;160\&quot; y=\&quot;203\&quot; />\n            </Array>\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\&quot;enuX_6VsqPwF3hcZr7AK-120\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.004;entryY=0.224;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; source=\&quot;enuX_6VsqPwF3hcZr7AK-73\&quot; target=\&quot;enuX_6VsqPwF3hcZr7AK-23\&quot; edge=\&quot;1\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n            <Array as=\&quot;points\&quot;>\n              <mxPoint x=\&quot;540\&quot; y=\&quot;90\&quot; />\n              <mxPoint x=\&quot;540\&quot; y=\&quot;54\&quot; />\n            </Array>\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\&quot;ZZ1oNmMWEcc1Qex5SiT5-1\&quot; value=\&quot;\&quot; style=\&quot;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=halfCircle;endFill=0;sketch=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;endSize=6;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeColor=default;strokeWidth=1;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; source=\&quot;enuX_6VsqPwF3hcZr7AK-95\&quot; edge=\&quot;1\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n            <mxPoint x=\&quot;463\&quot; y=\&quot;130\&quot; as=\&quot;sourcePoint\&quot; />\n            <mxPoint x=\&quot;540\&quot; y=\&quot;260\&quot; as=\&quot;targetPoint\&quot; />\n            <Array as=\&quot;points\&quot;>\n              <mxPoint x=\&quot;540\&quot; y=\&quot;140\&quot; />\n            </Array>\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\&quot;ZZ1oNmMWEcc1Qex5SiT5-2\&quot; value=\&quot;&amp;lt;i&amp;gt;&amp;amp;lt;&amp;amp;lt;Parametrizer&amp;amp;gt;&amp;amp;gt;&amp;lt;/i&amp;gt;&amp;lt;br&amp;gt;&amp;lt;b&amp;gt;Interface for plugins&amp;lt;/b&amp;gt;\&quot; style=\&quot;swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;576\&quot; y=\&quot;350\&quot; width=\&quot;207\&quot; height=\&quot;90\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;ZZ1oNmMWEcc1Qex5SiT5-4\&quot; value=\&quot;\&quot; style=\&quot;line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;\&quot; parent=\&quot;ZZ1oNmMWEcc1Qex5SiT5-2\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;40\&quot; width=\&quot;207\&quot; height=\&quot;8\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;ZZ1oNmMWEcc1Qex5SiT5-5\&quot; value=\&quot;&amp;lt;p style=&amp;quot;margin:0px;margin-left:4px;&amp;quot;&amp;gt;+&amp;amp;nbsp;&amp;lt;span class=&amp;quot;t&amp;quot;&amp;gt;&amp;lt;span class=&amp;quot;nam&amp;quot;&amp;gt;parameterize_topology&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;op&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;(top)&amp;lt;/p&amp;gt;&amp;amp;nbsp;→ top\&quot; style=\&quot;text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;\&quot; parent=\&quot;ZZ1oNmMWEcc1Qex5SiT5-2\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;48\&quot; width=\&quot;207\&quot; height=\&quot;42\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;ZZ1oNmMWEcc1Qex5SiT5-6\&quot; value=\&quot;\&quot; style=\&quot;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=oval;endFill=0;endSize=10;strokeWidth=1;sketch=0;exitX=-0.001;exitY=0.219;exitDx=0;exitDy=0;exitPerimeter=0;strokeColor=default;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=11;fontColor=default;labelBackgroundColor=default;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; source=\&quot;ZZ1oNmMWEcc1Qex5SiT5-2\&quot; edge=\&quot;1\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n            <mxPoint x=\&quot;573\&quot; y=\&quot;370\&quot; as=\&quot;sourcePoint\&quot; />\n            <mxPoint x=\&quot;540\&quot; y=\&quot;260\&quot; as=\&quot;targetPoint\&quot; />\n            <Array as=\&quot;points\&quot;>\n              <mxPoint x=\&quot;540\&quot; y=\&quot;370\&quot; />\n            </Array>\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\&quot;AoEu70FCAJxQCigTwmNW-5\&quot; value=\&quot;KMC\&quot; style=\&quot;shape=folder;fontStyle=1;tabWidth=110;tabHeight=30;tabPosition=left;html=1;boundedLbl=1;labelInHeader=1;container=1;collapsible=0;recursiveResize=0;whiteSpace=wrap;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;320\&quot; y=\&quot;560\&quot; width=\&quot;187\&quot; height=\&quot;280\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;AoEu70FCAJxQCigTwmNW-16\&quot; value=\&quot;rfKMC\&quot; style=\&quot;swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;\&quot; parent=\&quot;AoEu70FCAJxQCigTwmNW-5\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;9\&quot; y=\&quot;40\&quot; width=\&quot;170\&quot; height=\&quot;70\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;AoEu70FCAJxQCigTwmNW-17\&quot; value=\&quot;&amp;lt;div&amp;gt;+ rfKMC(recipeCollection)&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;→ KMCResult(recipe, time)&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=0;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;\&quot; parent=\&quot;AoEu70FCAJxQCigTwmNW-16\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;26\&quot; width=\&quot;170\&quot; height=\&quot;44\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;AoEu70FCAJxQCigTwmNW-18\&quot; value=\&quot;Extrande[_mod]\&quot; style=\&quot;swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;\&quot; parent=\&quot;AoEu70FCAJxQCigTwmNW-5\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;9\&quot; y=\&quot;120\&quot; width=\&quot;170\&quot; height=\&quot;70\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;AoEu70FCAJxQCigTwmNW-19\&quot; value=\&quot;&amp;lt;div&amp;gt;+ Extrande(recipeCollection)&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;→ KMCResult(recipe, time)&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=0;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;\&quot; parent=\&quot;AoEu70FCAJxQCigTwmNW-18\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;26\&quot; width=\&quot;170\&quot; height=\&quot;44\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;AoEu70FCAJxQCigTwmNW-20\&quot; value=\&quot;first_reaction_method\&quot; style=\&quot;swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;\&quot; parent=\&quot;AoEu70FCAJxQCigTwmNW-5\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry x=\&quot;9\&quot; y=\&quot;200\&quot; width=\&quot;170\&quot; height=\&quot;70\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;AoEu70FCAJxQCigTwmNW-21\&quot; value=\&quot;&amp;lt;div&amp;gt;+ frm(recipeCollection)&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;→ KMCResult(recipe, time)&amp;lt;br&amp;gt;&amp;lt;/div&amp;gt;\&quot; style=\&quot;text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontStyle=0;labelBackgroundColor=none;labelBorderColor=none;textShadow=0;fillStyle=auto;\&quot; parent=\&quot;AoEu70FCAJxQCigTwmNW-20\&quot; vertex=\&quot;1\&quot;>\n          <mxGeometry y=\&quot;26\&quot; width=\&quot;170\&quot; height=\&quot;44\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;AoEu70FCAJxQCigTwmNW-26\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.583;entryY=0.046;entryDx=0;entryDy=0;entryPerimeter=0;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; source=\&quot;AoEu70FCAJxQCigTwmNW-22\&quot; target=\&quot;AoEu70FCAJxQCigTwmNW-5\&quot; edge=\&quot;1\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n            <Array as=\&quot;points\&quot;>\n              <mxPoint x=\&quot;500\&quot; y=\&quot;309\&quot; />\n              <mxPoint x=\&quot;500\&quot; y=\&quot;573\&quot; />\n            </Array>\n          </mxGeometry>\n        </mxCell>\n        <mxCell id=\&quot;AoEu70FCAJxQCigTwmNW-27\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.786;entryY=0.996;entryDx=0;entryDy=0;entryPerimeter=0;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; source=\&quot;enuX_6VsqPwF3hcZr7AK-18\&quot; target=\&quot;enuX_6VsqPwF3hcZr7AK-12\&quot; edge=\&quot;1\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot; />\n        </mxCell>\n        <mxCell id=\&quot;AoEu70FCAJxQCigTwmNW-29\&quot; style=\&quot;edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.003;entryY=0.133;entryDx=0;entryDy=0;entryPerimeter=0;\&quot; parent=\&quot;WIyWlLk6GJQsqaUBKTNV-1\&quot; source=\&quot;enuX_6VsqPwF3hcZr7AK-58\&quot; target=\&quot;enuX_6VsqPwF3hcZr7AK-23\&quot; edge=\&quot;1\&quot;>\n          <mxGeometry relative=\&quot;1\&quot; as=\&quot;geometry\&quot;>\n            <mxPoint x=\&quot;570\&quot; y=\&quot;58\&quot; as=\&quot;targetPoint\&quot; />\n          </mxGeometry>\n        </mxCell>\n      </root>\n    </mxGraphModel>\n  </diagram>\n</mxfile>\n&quot;}">
@@ -726,6 +730,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("http:\/\/graeter-group\.github\.io\/kimmdy");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -760,24 +782,64 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
   const processXRef = (id, note) => {
-    if (id.startsWith('sec-')) {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
         }
         return container.innerHTML
       } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
         return note.innerHTML;
       }
     } else {
-      return note.innerHTML;
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -786,27 +848,56 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       instance.disable();
       let url = xref.getAttribute('href');
       let hash = undefined; 
-      try { hash = new URL(url).hash; } catch {}
-      const id = hash.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note !== null) {
-        try {
-          const html = processXRef(id, note);
-          instance.setContent(html);
-        } finally {
-          instance.enable();
-          instance.show();
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
         }
       } else {
-        // See if we can fetch this
-        fetch(url.split('#')[0])
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
         .then(res => res.text())
         .then(html => {
           const parser = new DOMParser();
           const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.getElementById(id);
+          const note = htmlDoc.querySelector('main.content');
           if (note !== null) {
-            const html = processXRef(id, note);
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
             instance.setContent(html);
           } 
         }).finally(() => {
@@ -884,6 +975,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -945,12 +1062,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../guide/explanation/index.html" class="pagination-link">
+      <a href="../../guide/explanation/index.html" class="pagination-link" aria-label="Explanation">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Explanation</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../guide/explanation/topology.html" class="pagination-link">
+      <a href="../../guide/explanation/topology.html" class="pagination-link" aria-label="Visualize Topologies">
         <span class="nav-page-text">Visualize Topologies</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -960,4 +1077,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/graeter-group/kimmdy/edit/main/guide/explanation/components.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/graeter-group/kimmdy/issues/new" class="toc-action">Report an issue</a></p></div></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/graeter-group/kimmdy/edit/main/guide/explanation/components.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/graeter-group/kimmdy/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

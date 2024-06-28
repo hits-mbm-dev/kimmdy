@@ -1,6 +1,6 @@
 """
 The tasks module holds the TaskFiles class which organizes input and 
-output paths and the Task class for steps in the runmanager.
+output paths and the Task class for tasks in the runmanager queue.
 """
 
 import logging
@@ -9,7 +9,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable, Optional
 
-from kimmdy.constants import MARK_STARTED, MARK_DONE
+from kimmdy.constants import MARK_DONE, MARK_STARTED
 from kimmdy.parsing import read_plumed, write_time_marker
 from kimmdy.utils import longFormatter
 
@@ -111,7 +111,7 @@ def create_task_directory(runmng, postfix: str) -> TaskFiles:
 
 
 class Task:
-    """A task to be performed as as a step in the RunManager.
+    """A task to be performed as part of the RunManager Queue.
 
     A task consists of a function and its keyword arguments.
     Calling a taks calls the stored function.

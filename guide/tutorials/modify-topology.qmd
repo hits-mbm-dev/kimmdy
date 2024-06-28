@@ -11,6 +11,7 @@ categories:
 In this tutorial we will check out different ways to process GROMACS topology files with the command-line interface `kimmdy-modify-top`. Use `kimmdy-modify-top -h` to see the arguments you can pass to it for your kimmdy version. The python API can be found in the [Reference](https://graeter-group.github.io/kimmdy/_reference/tools.html#kimmdy.tools.modify_top). You need a GROMACS installation and an environment with kimmdy for the tutorial.
 
 # Parameterize a Molecule with Grappa
+
 To parameterize a molecule with grappa using `kimmdy-modify-top`, you first need to have a GROMACS topology file for your system. Here, we will use a Ace-Ala-Nme peptide. First, download the peptide pdb and create a topology file using a grappa-compatible force field.
 
 ```bash
@@ -48,6 +49,7 @@ kimmdy-modify-top topol.top topol_vanilla.top
 # compare results
 vimdiff topol_grappa.top topol_vanilla.top
 ```
+
 You should see explicit parameters for bonds, angles dihedrals (e.g `2 1 5 6 9 180.0 1.5141575 1 `) in the grappa parameterized file while the non-parameterized file has implicit parameters which are defined in the interaction type section (`2 1 5 6 9`). If that's the case, you have successfully parameterized a molecule with grappa and are finished with this section of the tutorial!
 
 # Remove Hydrogens and parameterize for radical starting structures
@@ -111,6 +113,7 @@ When using the option to remove hydrogens, make sure to keep a distance of at le
 :::
 
 # Complex Parameterization
+
 ::: {.callout-tip appearance="simple"}
 While parsing a topology file, molecules that are neither water nor ions (as identified by the molecule name) are grouped in the `Reactive` molecule. This `Reactive` molecule is passed to grappa for parameterization. For topologies with multiple solute components such as protein:DNA complexes or membrane proteins as well as files where the default recognition of water and ions does not work, you can explicitly define included and excluded moleculetypes in the topology. The includes and excludes are supplied as .csv files. 
 :::

@@ -79,9 +79,12 @@ def get_shell_stdout(s):
     return process.stdout
 
 
-def check_file_exists(p: Path):
-    if not p.exists():
-        m = f"File not found: {p}"
+def check_file_exists(path: Path, option_name: str | None = None):
+    if not path.exists():
+        if option_name:
+            m = f"File not found: {path} for {option_name}"
+        else:
+            m = f"File not found: {path}"
         raise LookupError(m)
 
 

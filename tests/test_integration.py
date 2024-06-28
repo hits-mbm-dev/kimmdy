@@ -120,7 +120,18 @@ def test_grappa_partial_parameterization(arranged_tmp_path):
     indirect=True,
 )
 def test_integration_single_reaction(arranged_tmp_path):
-    kimmdy_run()
+    kimmdy_run(input=Path("kimmdy.yml"))
+    assert "Finished running tasks" in read_last_line(Path("kimmdy.log"))
+    assert len(list(Path.cwd().glob("single_reaction_000/*"))) == 7
+
+
+@pytest.mark.parametrize(
+    "arranged_tmp_path",
+    (["test_integration/hexalanine_single_reaction"]),
+    indirect=True,
+)
+def test_integration_just_reactions(arranged_tmp_path):
+    kimmdy_run(input=Path("kimmdy2.yml"))
     assert "Finished running tasks" in read_last_line(Path("kimmdy.log"))
     assert len(list(Path.cwd().glob("single_reaction_000/*"))) == 7
 

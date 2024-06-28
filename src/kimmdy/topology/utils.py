@@ -36,9 +36,10 @@ def get_top_section(
         section = top.get(name)
 
     if section is None:
-        logger.warning(
-            f"Topology does not contain section {name}. "
-            "Is the forcefield in the correct directory?"
+        logger.debug(
+            f"Topology does not have {name}. "
+            "If you expet to find this sectioh, check that "
+            "the forcefield is in the current working directory config.cwd."
         )
         return None
     condition = section.get("condition")
@@ -195,11 +196,6 @@ def set_top_section(
                 f"condition type {condition_type} is not supported"
             )
     section["content"] = value
-
-
-def set_protein_section(top: dict, name: str, value: list) -> Optional[list[list]]:
-    """Set content of a section in the first moleculetype (protein) from a topology dict."""
-    set_top_section(top, name, value, moleculetype="Protein")
 
 
 def set_reactive_section(top: dict, name: str, value: list) -> Optional[list[list]]:

@@ -4,7 +4,10 @@
   "title": "kimmdy config",
   "$id": "https://raw.githubusercontent.com/graeter-group/kimmdy/main/src/kimmdy/kimmdy-yaml-schema.json",
   "additionalProperties": false,
-  "required": ["sequence", "changer"],
+  "required": [
+    "sequence",
+    "changer"
+  ],
   "properties": {
     "slurm": {
       "title": "slurm",
@@ -94,7 +97,13 @@
           "type": "string",
           "pytype": "str",
           "default": "INFO",
-          "enum": ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]
+          "enum": [
+            "DEBUG",
+            "INFO",
+            "WARNING",
+            "ERROR",
+            "CRITICAL"
+          ]
         }
       }
     },
@@ -117,7 +126,13 @@
       "description": "KMC algorithm overwrite. Should be set by the reactions, but can be changed here. Not all reactions may support all algorithms.",
       "type": "string",
       "pytype": "str",
-      "enum": ["", "rfkmc", "frm", "extrande", "extrande_mod"],
+      "enum": [
+        "",
+        "rfkmc",
+        "frm",
+        "extrande",
+        "extrande_mod"
+      ],
       "default": ""
     },
     "tau_scale": {
@@ -211,7 +226,7 @@
       "description": "space-separated string of radical atom ids, can be empty",
       "type": "string",
       "pytype": "str"
-    },    
+    },
     "plumed": {
       "title": "plumed",
       "description": ".dat file containing plumed config",
@@ -230,6 +245,12 @@
       "type": "string",
       "pytype": "Path"
     },
+    "xtc": {
+      "title": "xtc",
+      "description": ".xtc file of a finished simulation for starting directly with a reaction",
+      "type": "string",
+      "pytype": "Path"
+    },
     "restart": {
       "title": "restart",
       "type": "object",
@@ -241,7 +262,9 @@
           "description": "KIMMDY run directory to restart from"
         }
       },
-      "required": ["run_directory"]
+      "required": [
+        "run_directory"
+      ]
     },
     "mds": {
       "title": "mds",
@@ -250,7 +273,7 @@
       "patternProperties": {
         ".*": {
           "type": "object",
-          "description":"Name of an MD step",
+          "description": "Name of an MD step",
           "properties": {
             "mdp": {
               "type": "string",
@@ -264,7 +287,9 @@
               "description": "Whether plumed should be used for this run or not"
             }
           },
-          "required": ["mdp"],
+          "required": [
+            "mdp"
+          ],
           "additionalProperties": false
         }
       }
@@ -301,19 +326,25 @@
               "type": "string",
               "description": "Parameterization scheme that is used on the topology file after changes to it",
               "pytype": "str",
-              "enum": ["grappa","basic"],
+              "enum": [
+                "grappa",
+                "basic"
+              ],
               "default": "basic"
             },
-            "parameterization_kwargs":{
+            "parameterization_kwargs": {
               "type": "object",
-              "description": "Keyword argument container for the selected parameterization scheme", 
+              "description": "Keyword argument container for the selected parameterization scheme",
               "additionalProperties": true
             }
           },
           "additionalProperties": false
         }
       },
-      "required": ["coordinates", "topology"]
+      "required": [
+        "coordinates",
+        "topology"
+      ]
     },
     "sequence": {
       "title": "sequence",
@@ -322,7 +353,9 @@
       "type": "array",
       "items": {
         "oneOf": [
-          { "type": "string" },
+          {
+            "type": "string"
+          },
           {
             "type": "object",
             "properties": {
@@ -330,13 +363,16 @@
                 "type": "integer",
                 "description": "Multiplicity of the task",
                 "default": 2,
-                "minimum": 1 },
+                "minimum": 1
+              },
               "tasks": {
                 "type": "array",
                 "description": "List of tasks",
                 "items": {
                   "oneOf": [
-                    { "type": "string" },
+                    {
+                      "type": "string"
+                    },
                     {
                       "type": "object",
                       "properties": {
@@ -344,7 +380,8 @@
                           "type": "integer",
                           "description": "Multiplicity of the task",
                           "default": 2,
-                          "minimum": 1 },
+                          "minimum": 1
+                        },
                         "tasks": {
                           "type": "array",
                           "description": "List of tasks",
@@ -353,14 +390,20 @@
                           }
                         }
                       },
-                      "required": ["mult", "tasks"],
+                      "required": [
+                        "mult",
+                        "tasks"
+                      ],
                       "additionalProperties": false
                     }
                   ]
                 }
               }
             },
-            "required": ["mult", "tasks"],
+            "required": [
+              "mult",
+              "tasks"
+            ],
             "additionalProperties": false
           }
         ]
@@ -383,14 +426,14 @@
         }
       }
     },
-    "plot_rates" : {
+    "plot_rates": {
       "title": "plot_rates",
       "description": "Plot the reaction rates during the reactions step",
       "type": "boolean",
       "pytype": "bool",
       "default": true
     },
-    "save_recipes" : {
+    "save_recipes": {
       "title": "save_recipes",
       "description": "Save recipes as csv during the reactions step",
       "type": "boolean",
