@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.8.4](https://github.com/graeter-group/kimmdy/compare/v6.8.3...v6.8.4) (2024-07-02)
+
+
+### Bug Fixes
+
+* close task logger handler after taks has run. fixes [#452](https://github.com/graeter-group/kimmdy/issues/452) ([451f3fd](https://github.com/graeter-group/kimmdy/commit/451f3fd02c2bf942939c2576fd13465916be4463))
+
 ## [6.8.3](https://github.com/graeter-group/kimmdy/compare/v6.8.2...v6.8.3) (2024-06-25)
 
 
